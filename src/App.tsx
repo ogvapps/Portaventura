@@ -349,9 +349,22 @@ export default function App() {
     setCurrentView('intro');
   };
 
-  // Handler: New survey button
+  // Handler: New survey button (navigates to intro & smoothly scrolls to survey presets selection)
   const handleNewSurvey = () => {
-    setCurrentView('intro');
+    if (currentView !== 'intro') {
+      setCurrentView('intro');
+    }
+    // Smooth scroll to the survey selection section
+    setTimeout(() => {
+      const el =
+        document.getElementById('section-survey-presets') ||
+        document.getElementById('survey-config-section');
+      if (el) {
+        el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      } else {
+        window.scrollTo({ top: 380, behavior: 'smooth' });
+      }
+    }, 80);
   };
 
   // Active progress calculation for navbar

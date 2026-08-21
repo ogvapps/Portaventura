@@ -133,6 +133,37 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
                 <ParkSkylineBanner className="opacity-90" />
               </div>
 
+              {/* Primary Call to Action buttons in the Hero */}
+              <div className="my-6 flex flex-wrap items-center justify-center gap-3.5">
+                <button
+                  id="btn-hero-start-survey"
+                  type="button"
+                  onClick={() => {
+                    const el = document.getElementById('section-survey-presets');
+                    if (el) {
+                      el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    } else {
+                      onStartPreset(selectedPreset, visitorName, visitDate);
+                    }
+                  }}
+                  className="px-8 py-3.5 bg-gradient-to-r from-[#E64A38] to-[#D63031] hover:from-[#D63031] hover:to-[#B31D1D] text-white rounded-full font-bold uppercase tracking-widest text-xs shadow-xl shadow-[#E64A38]/30 transition-all flex items-center gap-2.5 active:scale-95 border-2 border-white/60 group"
+                >
+                  <Play className="w-4 h-4 fill-white" />
+                  <span>Comenzar Nueva Encuesta</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <button
+                  id="btn-hero-custom-survey"
+                  type="button"
+                  onClick={() => onStartCustom(visitorName, visitDate)}
+                  className="px-6 py-3.5 bg-white/90 hover:bg-white text-[#2A1845] border-2 border-[#38A3A5] hover:border-[#2b8385] rounded-full font-bold uppercase tracking-wider text-xs shadow-md transition-all flex items-center gap-2 active:scale-95"
+                >
+                  <SlidersHorizontal className="w-4 h-4 text-[#38A3A5]" />
+                  <span>Crear a Medida</span>
+                </button>
+              </div>
+
               {/* Quick Feature Badges (Wonderland Inspired) */}
               <div className="flex flex-wrap items-center justify-center gap-3 text-xs text-[#2A1845] font-semibold">
                 <div className="flex items-center gap-2 px-4 py-2 rounded-full bg-[#FFF9F3] border border-[#E64A38]/30 shadow-2xs">
@@ -177,14 +208,26 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
                       }}
                     />
                   </div>
-                  <button
-                    id="btn-resume-survey"
-                    onClick={onResumeActive}
-                    className="w-full mt-4 flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#F7B731] to-[#FFA801] hover:from-[#FFA801] hover:to-[#F7B731] text-[#2A1845] rounded-full font-bold uppercase tracking-widest text-xs shadow-md transition-all active:scale-[0.98]"
-                  >
-                    <Play className="w-4 h-4 fill-current" />
-                    <span>Continuar Encuesta Activa</span>
-                  </button>
+                  <div className="mt-4 flex flex-col sm:flex-row items-center gap-2.5">
+                    <button
+                      id="btn-resume-survey"
+                      onClick={onResumeActive}
+                      className="flex-1 w-full flex items-center justify-center gap-2 py-3 bg-gradient-to-r from-[#F7B731] to-[#FFA801] hover:from-[#FFA801] hover:to-[#F7B731] text-[#2A1845] rounded-full font-bold uppercase tracking-widest text-xs shadow-md transition-all active:scale-[0.98]"
+                    >
+                      <Play className="w-4 h-4 fill-current" />
+                      <span>Continuar Encuesta Activa</span>
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => {
+                        const el = document.getElementById('section-survey-presets');
+                        el?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                      }}
+                      className="w-full sm:w-auto px-4 py-3 rounded-full bg-white/10 hover:bg-white/20 text-white text-xs font-bold uppercase tracking-wider border border-white/30 transition-all text-center"
+                    >
+                      Nueva Encuesta ↓
+                    </button>
+                  </div>
                 </div>
               )}
             </div>
@@ -193,7 +236,7 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
       </div>
 
       {/* Main Body: Configuration & Survey Selection */}
-      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
+      <div id="survey-config-section" className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 mt-10">
         {/* Step 1: Visitor details (Ticket Booth Style from Flyer 3) */}
         <div className="bg-white border-2 border-[#E64A38]/30 rounded-3xl p-6 sm:p-8 mb-8 shadow-sm relative overflow-hidden">
           <div className="flex items-center justify-between mb-4">
@@ -450,7 +493,7 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
         )}
 
         {/* Step 2: Choose Survey Mode (Flyer Card Presets) */}
-        <div className="mb-10">
+        <div id="section-survey-presets" className="mb-10 scroll-mt-24">
           <div className="flex items-center justify-between mb-5">
             <h2 className="text-xs font-bold text-[#E64A38] uppercase tracking-[0.2em] flex items-center gap-2.5">
               <span className="flex items-center justify-center w-6 h-6 rounded-full bg-[#E64A38] text-white text-xs font-bold shadow-2xs">
