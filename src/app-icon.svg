@@ -1,0 +1,97 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
+  <defs>
+    <radialGradient id="skyGradFav" cx="50%" cy="35%" r="65%">
+      <stop offset="0%" stop-color="#40c9ff"/>
+      <stop offset="45%" stop-color="#0099ff"/>
+      <stop offset="100%" stop-color="#0052cc"/>
+    </radialGradient>
+    <linearGradient id="ringGradFav" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#84cc16"/>
+      <stop offset="50%" stop-color="#22c55e"/>
+      <stop offset="100%" stop-color="#15803d"/>
+    </linearGradient>
+    <linearGradient id="woodGradFav" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#78350f"/>
+      <stop offset="40%" stop-color="#542409"/>
+      <stop offset="100%" stop-color="#3b1706"/>
+    </linearGradient>
+    <linearGradient id="porGradFav" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#cbd5e1"/>
+    </linearGradient>
+    <linearGradient id="letA1Fav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff4500"/><stop offset="100%" stop-color="#c22700"/></linearGradient>
+    <linearGradient id="letVFav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ff8c00"/><stop offset="100%" stop-color="#d95b00"/></linearGradient>
+    <linearGradient id="letEFav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#ffcc00"/><stop offset="100%" stop-color="#e6a100"/></linearGradient>
+    <linearGradient id="letNFav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#a3e635"/><stop offset="100%" stop-color="#65a30d"/></linearGradient>
+    <linearGradient id="letTFav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#22c55e"/><stop offset="100%" stop-color="#15803d"/></linearGradient>
+    <linearGradient id="letUFav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#06b6d4"/><stop offset="100%" stop-color="#0e7490"/></linearGradient>
+    <linearGradient id="letRFav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="100%" stop-color="#1d4ed8"/></linearGradient>
+    <linearGradient id="letA2Fav" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#60a5fa"/><stop offset="100%" stop-color="#2563eb"/></linearGradient>
+  </defs>
+
+  <!-- Frame -->
+  <rect width="512" height="512" rx="115" fill="url(#skyGradFav)"/>
+
+  <!-- Adventure Tower (Left) -->
+  <g stroke="#3e2723" stroke-width="4" fill="#a0522d">
+    <line x1="85" y1="90" x2="80" y2="280" stroke="#5c3818" stroke-width="8" stroke-linecap="round"/>
+    <line x1="125" y1="90" x2="135" y2="280" stroke="#5c3818" stroke-width="8" stroke-linecap="round"/>
+    <line x1="65" y1="120" x2="60" y2="280" stroke="#4a2c11" stroke-width="7" stroke-linecap="round"/>
+    <rect x="55" y="110" width="85" height="14" rx="3" fill="#8b5a2b" stroke="#3e2723" stroke-width="3"/>
+    <rect x="70" y="200" width="70" height="12" rx="3" fill="#8b5a2b" stroke="#3e2723" stroke-width="3"/>
+    <polygon points="50,110 95,75 145,110" fill="#6d431d" stroke="#2c1708" stroke-width="4"/>
+  </g>
+
+  <!-- Climbing Tower (Right) -->
+  <g>
+    <polygon points="370,80 430,70 450,260 365,270" fill="#f97316" stroke="#c2410c" stroke-width="4"/>
+    <polygon points="370,80 345,95 340,275 365,270" fill="#0284c7" stroke="#0369a1" stroke-width="4"/>
+    <circle cx="360" cy="120" r="7" fill="#fbbf24"/>
+    <circle cx="385" cy="105" r="8" fill="#38bdf8"/>
+    <circle cx="415" cy="115" r="7" fill="#ec4899"/>
+    <circle cx="375" cy="145" r="9" fill="#22c55e"/>
+    <circle cx="405" cy="150" r="8" fill="#fb923c"/>
+  </g>
+
+  <!-- Green Ring -->
+  <circle cx="256" cy="245" r="195" fill="none" stroke="url(#ringGradFav)" stroke-width="24"/>
+
+  <!-- Zipline Adventurer -->
+  <path d="M120 115 Q256 160 380 95" fill="none" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+  <g transform="translate(230, 105)">
+    <circle cx="25" cy="16" r="6" fill="#64748b" stroke="#0f172a" stroke-width="3"/>
+    <line x1="25" y1="20" x2="25" y2="40" stroke="#334155" stroke-width="4"/>
+    <circle cx="25" cy="45" r="10" fill="#1e293b"/>
+    <path d="M25 52 L16 35 M25 52 L32 34" stroke="#1e293b" stroke-width="6" stroke-linecap="round"/>
+    <path d="M20 52 L30 52 L26 76 L18 76 Z" fill="#1e293b"/>
+    <path d="M19 76 L8 88 L-4 82" stroke="#1e293b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <path d="M25 76 L36 94 L46 98" stroke="#1e293b" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+  </g>
+
+  <!-- Wooden Badge -->
+  <path d="M 68 280 Q 256 220 444 280 Q 425 390 256 425 Q 87 390 68 280 Z" fill="url(#woodGradFav)" stroke="#facc15" stroke-width="7"/>
+
+  <!-- POR -->
+  <text x="256" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="88" letter-spacing="4" fill="#111827" stroke="#111827" stroke-width="24">POR</text>
+  <text x="256" y="248" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="88" letter-spacing="4" fill="url(#porGradFav)" stroke="#ffffff" stroke-width="4">POR</text>
+
+  <!-- AVENTURA -->
+  <text x="256" y="348" text-anchor="middle" font-family="system-ui, sans-serif" font-weight="900" font-size="80" letter-spacing="2" fill="#000000" stroke="#000000" stroke-width="22">AVENTURA</text>
+  <text x="88" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letA1Fav)" stroke="#ffffff" stroke-width="3">A</text>
+  <text x="135" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letVFav)" stroke="#ffffff" stroke-width="3">V</text>
+  <text x="184" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letEFav)" stroke="#ffffff" stroke-width="3">E</text>
+  <text x="230" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letNFav)" stroke="#ffffff" stroke-width="3">N</text>
+  <text x="284" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letTFav)" stroke="#ffffff" stroke-width="3">T</text>
+  <text x="330" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letUFav)" stroke="#ffffff" stroke-width="3">U</text>
+  <text x="382" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letRFav)" stroke="#ffffff" stroke-width="3">R</text>
+  <text x="430" y="348" font-family="system-ui, sans-serif" font-weight="900" font-size="80" fill="url(#letA2Fav)" stroke="#ffffff" stroke-width="3">A</text>
+
+  <!-- Roller Coaster -->
+  <path d="M-10 500 Q90 400 240 510" fill="none" stroke="#dc2626" stroke-width="8" stroke-linecap="round"/>
+  <g transform="translate(100, 400) rotate(-18)">
+    <rect x="0" y="0" width="60" height="22" rx="6" fill="#ea580c" stroke="#7c2d12" stroke-width="3"/>
+    <circle cx="16" cy="-6" r="5" fill="#1e293b"/>
+    <circle cx="32" cy="-8" r="5" fill="#1e293b"/>
+    <circle cx="48" cy="-6" r="5" fill="#1e293b"/>
+  </g>
+</svg>

@@ -1,0 +1,78 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --color-cream: #FFF9F3;
+    --color-paper: #FFFFFF;
+    --color-midnight: #2A1845;
+    --color-coral: #E64A38;
+    --color-peach: #FCE8DD;
+    --color-sunshine: #F7B731;
+    --color-cyan: #38A3A5;
+    --color-mint: #81B29A;
+    --color-purple: #4B3869;
+    --color-border: #F0E2D4;
+  }
+
+  body {
+    background-color: #FFF9F3;
+    color: #2A1845;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+  }
+
+  h1, h2, h3, .font-serif {
+    font-family: 'Playfair Display', 'Fraunces', serif;
+  }
+
+  .font-script {
+    font-family: 'Caveat', cursive;
+  }
+
+  .font-display {
+    font-family: 'Outfit', 'Plus Jakarta Sans', sans-serif;
+  }
+}
+
+/* Amusement Park Vintage Flyer Double-Border Frame */
+.flyer-frame {
+  border: 2px solid #E64A38;
+  border-radius: 1.5rem;
+  padding: 0.35rem;
+  background-color: transparent;
+}
+
+.flyer-inner {
+  border: 1px solid rgba(230, 74, 56, 0.35);
+  border-radius: 1.25rem;
+  background-color: #FFFFFF;
+}
+
+/* Carnival Marquee Ribbon & Stamp */
+.carnival-ribbon {
+  background: linear-gradient(135deg, #E64A38 0%, #D63031 100%);
+  color: #FFFFFF;
+  border-radius: 9999px;
+  box-shadow: 0 4px 12px rgba(230, 74, 56, 0.25);
+}
+
+.ticket-notch {
+  background: radial-gradient(circle at 0% 50%, transparent 8px, #FFFFFF 9px),
+              radial-gradient(circle at 100% 50%, transparent 8px, #FFFFFF 9px);
+}
+
+/* Custom scrollbar in Amusement Park Tones */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FDF3E7;
+}
+::-webkit-scrollbar-thumb {
+  background: #E8D3C0;
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #D9BD9E;
+}
+

@@ -1,0 +1,6 @@
+{
+  "name": "PortAventura - Encuestas de Atracciones",
+  "description": "Aplicación interactiva de PortAventura World con tiempos de espera en tiempo real, juegos de cola, encuestas de atracciones, recomendaciones inteligentes y estadísticas.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "userProfiles": {
+      "title": "User Profile & Preferences",
+      "description": "Stores user visitor preferences, passport data, and archetype",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "visitorName": { "type": "string" },
+        "nickname": { "type": "string" },
+        "avatar": { "type": "string" },
+        "customAvatarBg": { "type": "string" },
+        "heightCm": { "type": "number" },
+        "ageGroup": { "type": "string" },
+        "personalityRole": { "type": "string" },
+        "motionTolerance": { "type": "string" },
+        "favoriteParkFood": { "type": "string" },
+        "visitGoal": { "type": "string" },
+        "favoriteSoundtrack": { "type": "string" },
+        "adventureMotto": { "type": "string" },
+        "customTitle": { "type": "string" },
+        "adrenalinePreference": { "type": "string" },
+        "waterPreference": { "type": "string" },
+        "heightsPreference": { "type": "string" },
+        "inversionsPreference": { "type": "string" },
+        "groupType": { "type": "string" },
+        "preferredAreas": { "type": "array", "items": { "type": "string" } },
+        "archetypeName": { "type": "string" },
+        "archetypeBadge": { "type": "string" },
+        "archetypeIcon": { "type": "string" },
+        "archetypeDescription": { "type": "string" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["userId", "visitorName"]
+    },
+    "surveySessions": {
+      "title": "Survey Session",
+      "description": "A park survey evaluation session filled out by the user",
+      "type": "object",
+      "properties": {
+        "id": { "type": "string" },
+        "userId": { "type": "string" },
+        "visitorName": { "type": "string" },
+        "title": { "type": "string" },
+        "visitDate": { "type": "string" },
+        "presetId": { "type": "string" },
+        "ratings": { "type": "object" },
+        "completed": { "type": "boolean" },
+        "createdAt": { "type": "string", "format": "date-time" },
+        "updatedAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["id", "userId", "ratings", "createdAt"]
+    },
+    "attractionCommunityRatings": {
+      "title": "Attraction Community Rating",
+      "description": "Community reviews and aggregate scores for park attractions",
+      "type": "object",
+      "properties": {
+        "attractionId": { "type": "string" },
+        "userId": { "type": "string" },
+        "visitorName": { "type": "string" },
+        "score": { "type": "number" },
+        "adrenalineScore": { "type": "number" },
+        "themingScore": { "type": "number" },
+        "comment": { "type": "string" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      },
+      "required": ["attractionId", "userId", "score"]
+    }
+  },
+  "firestore": {
+    "/userProfiles/{userId}": {
+      "entity": "userProfiles",
+      "description": "User profile, adventurer passport and preferences"
+    },
+    "/surveySessions/{sessionId}": {
+      "entity": "surveySessions",
+      "description": "Survey evaluation sessions"
+    },
+    "/attractions/{attractionId}/communityRatings/{ratingId}": {
+      "entity": "attractionCommunityRatings",
+      "description": "Community ratings for each attraction"
+    }
+  }
+}
