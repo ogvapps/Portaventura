@@ -17,6 +17,7 @@ import {
   ShieldAlert,
   ArrowUpRight,
   SlidersHorizontal,
+  ExternalLink,
 } from 'lucide-react';
 import { ATTRACTIONS, AREAS } from '../data/attractions';
 import { AreaId, Attraction, AttractionCategory } from '../types';
@@ -238,6 +239,33 @@ export const AttractionCatalog: React.FC<AttractionCatalogProps> = ({
                 </button>
               ))}
             </div>
+          </div>
+
+          {/* Quick Access to Live Wait Times at PAFANS */}
+          <div className="mt-4 pt-3 border-t border-[#F0E2D4] flex flex-col sm:flex-row items-center justify-between gap-3 bg-[#FFF9F3] p-3 sm:p-4 rounded-2xl border border-[#E64A38]/20">
+            <div className="flex items-center gap-2.5">
+              <span className="w-8 h-8 rounded-full bg-[#E64A38] text-white flex items-center justify-center text-sm shadow-xs shrink-0">
+                ⏱️
+              </span>
+              <div className="text-left">
+                <div className="text-xs font-serif font-black text-[#2A1845]">
+                  ¿Quieres ver las colas en tiempo real ahora mismo?
+                </div>
+                <div className="text-[11px] text-[#2A1845]/70">
+                  Consulta el monitor especializado en directo de PortAventura & Ferrari Land.
+                </div>
+              </div>
+            </div>
+            <a
+              id="btn-catalog-open-pafans"
+              href="https://www.pafans.com/info/tiempos-de-espera"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-full bg-[#E64A38] hover:bg-[#D63031] text-white text-xs font-bold uppercase tracking-wider shadow-xs hover:shadow-md transition-all shrink-0"
+            >
+              <span>Ver Tiempos en PAFANS</span>
+              <ExternalLink className="w-3.5 h-3.5" />
+            </a>
           </div>
         </div>
       </div>

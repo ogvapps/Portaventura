@@ -10,11 +10,10 @@ import { WaitTimesView } from './components/WaitTimesView';
 import { QueueGamesView } from './components/QueueGamesView';
 import { PreferenceSurveyModal } from './components/PreferenceSurveyModal';
 import { UserProfilePassportModal } from './components/UserProfilePassportModal';
-import { AIChatCompanion } from './components/AIChatCompanion';
 import { ATTRACTIONS } from './data/attractions';
 import { SURVEY_PRESETS } from './data/presets';
 import { Attraction, AttractionRating, SurveyPreset, SurveySession, UserPreferences } from './types';
-import { Bot, Cloud, CloudCheck, MessageSquare, Sparkles, X } from 'lucide-react';
+import { AlertTriangle, Trash2 } from 'lucide-react';
 import {
   loadSavedSessions,
   saveSession,
@@ -32,11 +31,10 @@ import {
   wipeAllUserDataAndSignOut,
   auth,
 } from './lib/firebase';
-import { AlertTriangle, Trash2 } from 'lucide-react';
 
 export default function App() {
   const [currentView, setCurrentView] = useState<
-    'intro' | 'survey' | 'results' | 'custom-builder' | 'catalog' | 'history' | 'waittimes' | 'games' | 'chat'
+    'intro' | 'survey' | 'results' | 'custom-builder' | 'catalog' | 'history' | 'waittimes' | 'games'
   >('intro');
   const [activeSession, setActiveSession] = useState<SurveySession | null>(null);
   const [savedSessions, setSavedSessions] = useState<SurveySession[]>([]);
@@ -61,7 +59,6 @@ export default function App() {
 
   const [isPreferenceModalOpen, setIsPreferenceModalOpen] = useState(false);
   const [isPassportModalOpen, setIsPassportModalOpen] = useState(false);
-  const [isFloatingChatOpen, setIsFloatingChatOpen] = useState(false);
   const [isConfirmLogoutModalOpen, setIsConfirmLogoutModalOpen] = useState(false);
   const [isWipingData, setIsWipingData] = useState(false);
 
@@ -406,7 +403,6 @@ export default function App() {
             userPreferences={userPreferences}
             onOpenPreferenceSurvey={() => setIsPreferenceModalOpen(true)}
             onOpenPassport={() => setIsPassportModalOpen(true)}
-            onOpenAIChat={() => setCurrentView('chat')}
           />
         )}
 
@@ -461,16 +457,6 @@ export default function App() {
             onOpenSurveyForAttraction={handleStartSingleSurvey}
             onOpenWaitTimes={() => setCurrentView('waittimes')}
           />
-        )}
-
-        {currentView === 'chat' && (
-          <div className="p-2 sm:p-4 max-w-5xl mx-auto h-[calc(100dvh-5.5rem)] min-h-[460px]">
-            <AIChatCompanion
-              userPreferences={userPreferences}
-              onOpenSurveyModal={() => setIsPreferenceModalOpen(true)}
-              onSelectAttraction={handleStartSingleSurvey}
-            />
-          </div>
         )}
 
         {currentView === 'history' && (
@@ -557,44 +543,6 @@ export default function App() {
               </button>
             </div>
           </div>
-        </div>
-      )}
-
-      {/* Floating Quick AI Companion Button (available on all views except full-page chat and active survey to preserve focus) */}
-      {currentView !== 'chat' && currentView !== 'survey' && (
-        <div className="fixed bottom-18 sm:bottom-6 right-3 sm:right-6 z-40">
-          <button
-            id="btn-floating-ai-companion"
-            onClick={() => setIsFloatingChatOpen(!isFloatingChatOpen)}
-            className="flex items-center gap-2 px-3 sm:px-4 py-2.5 sm:py-3 bg-gradient-to-r from-[#9333EA] to-[#7E22CE] hover:from-[#7E22CE] hover:to-[#6B21A8] text-white rounded-full shadow-2xl hover:shadow-purple-500/40 transition-all hover:scale-105 active:scale-95 border-2 border-white/80 group"
-          >
-            <div className="relative">
-              <Bot className="w-5 h-5" />
-              <span className="absolute -top-1 -right-1 w-2.5 h-2.5 bg-emerald-400 border-2 border-white rounded-full animate-pulse" />
-            </div>
-            <span className="text-xs font-bold uppercase tracking-wider hidden sm:inline">
-              {isFloatingChatOpen ? 'Cerrar Chat' : 'Hablar con IA en Cola'}
-            </span>
-          </button>
-        </div>
-      )}
-
-      {/* Floating AI Companion Drawer */}
-      {isFloatingChatOpen && currentView !== 'chat' && (
-        <div className="fixed bottom-16 sm:bottom-20 right-2 sm:right-6 z-50 w-[calc(100vw-1rem)] sm:w-[430px] h-[540px] max-h-[calc(100dvh-5.5rem)] shadow-2xl animate-in slide-in-from-bottom-5 duration-300">
-          <AIChatCompanion
-            userPreferences={userPreferences}
-            onOpenSurveyModal={() => {
-              setIsFloatingChatOpen(false);
-              setIsPreferenceModalOpen(true);
-            }}
-            onSelectAttraction={(id) => {
-              setIsFloatingChatOpen(false);
-              handleStartSingleSurvey(id);
-            }}
-            isFloatingDrawer={true}
-            onCloseDrawer={() => setIsFloatingChatOpen(false)}
-          />
         </div>
       )}
     </div>

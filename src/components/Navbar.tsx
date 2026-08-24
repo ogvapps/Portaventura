@@ -8,10 +8,10 @@ import {
   PlusCircle,
   Clock,
   Gamepad2,
-  Bot,
   User,
   LogOut,
   Home,
+  ExternalLink,
 } from 'lucide-react';
 import { isSoundEnabled, setSoundEnabled } from '../utils/audio';
 import { CarnivalBunting } from './ParkDecorations';
@@ -20,8 +20,8 @@ import { AVATAR_OPTIONS } from './PreferenceSurveyModal';
 import { AppLogo } from './AppLogo';
 
 interface NavbarProps {
-  currentView: 'intro' | 'survey' | 'results' | 'catalog' | 'history' | 'waittimes' | 'games' | 'chat';
-  onNavigate: (view: 'intro' | 'survey' | 'results' | 'catalog' | 'history' | 'waittimes' | 'games' | 'chat') => void;
+  currentView: 'intro' | 'survey' | 'results' | 'catalog' | 'history' | 'waittimes' | 'games';
+  onNavigate: (view: 'intro' | 'survey' | 'results' | 'catalog' | 'history' | 'waittimes' | 'games') => void;
   onNewSurvey: () => void;
   onOpenPreferenceSurvey?: () => void;
   onOpenPassport?: () => void;
@@ -83,7 +83,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </span>
               </div>
               <p className="text-[10px] sm:text-[11px] text-[#2A1845]/70 font-medium hidden sm:block truncate">
-                <span className="font-script text-sm text-[#E64A38] font-bold mr-1">¡Vive la aventura!</span> • Valoración, Esperas, Juegos & IA
+                <span className="font-script text-sm text-[#E64A38] font-bold mr-1">¡Vive la aventura!</span> • Valoración, Esperas & Juegos
               </p>
             </div>
           </button>
@@ -110,19 +110,19 @@ export const Navbar: React.FC<NavbarProps> = ({
 
           {/* Desktop Nav Items */}
           <div className="hidden md:flex items-center gap-1.5 lg:gap-2">
-            {/* Live Wait Times */}
-            <button
+            {/* Live Wait Times - Direct link to PAFANS */}
+            <a
               id="btn-nav-waittimes"
-              onClick={() => onNavigate('waittimes')}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
-                currentView === 'waittimes'
-                  ? 'bg-[#E64A38] text-white shadow-sm'
-                  : 'text-[#2A1845]/75 hover:text-[#E64A38] hover:bg-white border border-transparent hover:border-[#E64A38]/20'
-              }`}
+              href="https://www.pafans.com/info/tiempos-de-espera"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all text-[#2A1845]/75 hover:text-[#E64A38] hover:bg-white border border-transparent hover:border-[#E64A38]/20"
+              title="Abrir Tiempos de Espera en PAFANS (En directo)"
             >
-              <Clock className="w-3.5 h-3.5" />
+              <Clock className="w-3.5 h-3.5 text-[#E64A38]" />
               <span>Tiempos de Espera</span>
-            </button>
+              <ExternalLink className="w-3 h-3 opacity-60" />
+            </a>
 
             {/* Queue Games */}
             <button
@@ -136,20 +136,6 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <Gamepad2 className="w-3.5 h-3.5" />
               <span>Juegos de Cola</span>
-            </button>
-
-            {/* AI Chat Companion */}
-            <button
-              id="btn-nav-chat"
-              onClick={() => onNavigate('chat')}
-              className={`flex items-center gap-1.5 px-3 py-2 rounded-full text-xs font-bold uppercase tracking-wider transition-all ${
-                currentView === 'chat'
-                  ? 'bg-[#9333EA] text-white shadow-sm'
-                  : 'text-[#2A1845]/75 hover:text-[#9333EA] hover:bg-white border border-transparent hover:border-[#9333EA]/20'
-              }`}
-            >
-              <Bot className="w-3.5 h-3.5" />
-              <span>Chat con IA</span>
             </button>
 
             {/* Attractions Catalog */}
@@ -263,7 +249,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         aria-label="Navegación móvil"
         className="md:hidden fixed bottom-0 left-0 right-0 z-40 bg-white/95 backdrop-blur-lg border-t border-[#F0E2D4] shadow-[0_-4px_20px_rgba(42,24,69,0.08)] px-1 py-1.5"
       >
-        <div className="grid grid-cols-6 items-center gap-0.5 max-w-lg mx-auto">
+        <div className="grid grid-cols-5 items-center gap-1 max-w-lg mx-auto">
           {/* Home / Encuestas */}
           <button
             onClick={() => onNavigate('intro')}
@@ -277,18 +263,20 @@ export const Navbar: React.FC<NavbarProps> = ({
             <span className="text-[9px] uppercase tracking-tighter font-bold">Inicio</span>
           </button>
 
-          {/* Live Wait Times */}
-          <button
-            onClick={() => onNavigate('waittimes')}
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
-              currentView === 'waittimes'
-                ? 'text-[#E64A38] font-black scale-105'
-                : 'text-[#2A1845]/60 hover:text-[#2A1845]'
-            }`}
+          {/* Live Wait Times - Direct link to PAFANS */}
+          <a
+            id="btn-bottom-waittimes"
+            href="https://www.pafans.com/info/tiempos-de-espera"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="flex flex-col items-center justify-center py-1 rounded-xl transition-all text-[#2A1845]/70 hover:text-[#E64A38]"
           >
-            <Clock className="w-5 h-5 mb-0.5" />
-            <span className="text-[9px] uppercase tracking-tighter font-bold">Colas</span>
-          </button>
+            <Clock className="w-5 h-5 mb-0.5 text-[#E64A38]" />
+            <span className="text-[9px] uppercase tracking-tighter font-bold flex items-center gap-0.5">
+              <span>Colas</span>
+              <ExternalLink className="w-2 h-2 opacity-70" />
+            </span>
+          </a>
 
           {/* Queue Games */}
           <button
@@ -301,19 +289,6 @@ export const Navbar: React.FC<NavbarProps> = ({
           >
             <Gamepad2 className="w-5 h-5 mb-0.5" />
             <span className="text-[9px] uppercase tracking-tighter font-bold">Juegos</span>
-          </button>
-
-          {/* AI Chat Companion */}
-          <button
-            onClick={() => onNavigate('chat')}
-            className={`flex flex-col items-center justify-center py-1 rounded-xl transition-all ${
-              currentView === 'chat'
-                ? 'text-[#9333EA] font-black scale-105'
-                : 'text-[#2A1845]/60 hover:text-[#2A1845]'
-            }`}
-          >
-            <Bot className="w-5 h-5 mb-0.5" />
-            <span className="text-[9px] uppercase tracking-tighter font-bold">Porty IA</span>
           </button>
 
           {/* Attractions Catalog */}

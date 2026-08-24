@@ -18,8 +18,7 @@ import {
   Star,
   Award,
   Ticket,
-  Bot,
-  MessageSquare,
+  ExternalLink,
 } from 'lucide-react';
 import { SURVEY_PRESETS } from '../data/presets';
 import { AttractionRating, SurveyPreset, SurveySession, UserPreferences } from '../types';
@@ -41,7 +40,6 @@ interface SurveyIntroProps {
   userPreferences?: UserPreferences | null;
   onOpenPreferenceSurvey?: () => void;
   onOpenPassport?: () => void;
-  onOpenAIChat?: () => void;
 }
 
 export const SurveyIntro: React.FC<SurveyIntroProps> = ({
@@ -57,7 +55,6 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
   userPreferences,
   onOpenPreferenceSurvey,
   onOpenPassport,
-  onOpenAIChat,
 }) => {
   const [visitorName, setVisitorName] = useState('Aventurero PortAventura');
   const [visitDate, setVisitDate] = useState(() => new Date().toISOString().split('T')[0]);
@@ -358,8 +355,8 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
           </div>
         )}
 
-        {/* Live Park Experience Shortcuts: Wait Times, Queue Games & AI Companion */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+        {/* Live Park Experience Shortcuts: Wait Times & Queue Games */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-8">
           {onOpenWaitTimes && (
             <div
               onClick={onOpenWaitTimes}
@@ -411,33 +408,6 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
               </div>
               <div className="px-2.5 py-1 rounded-full bg-[#FFF9F3] group-hover:bg-[#0284C7] group-hover:text-white text-[11px] font-bold text-[#2A1845] border border-[#F0E2D4] transition-colors shrink-0">
                 Jugar →
-              </div>
-            </div>
-          )}
-
-          {onOpenAIChat && (
-            <div
-              onClick={onOpenAIChat}
-              className="bg-white border-2 border-[#F0E2D4] hover:border-[#9333EA] rounded-3xl p-5 shadow-xs hover:shadow-md transition-all cursor-pointer group flex items-center justify-between gap-3"
-            >
-              <div className="flex items-center gap-3">
-                <div className="w-11 h-11 rounded-2xl bg-purple-100 text-[#9333EA] flex items-center justify-center text-xl group-hover:scale-110 transition-transform shrink-0">
-                  🤖
-                </div>
-                <div>
-                  <div className="text-[10px] font-black uppercase text-[#9333EA] tracking-widest">
-                    IA Personalizable
-                  </div>
-                  <h3 className="text-sm font-serif font-black text-[#2A1845] group-hover:text-[#9333EA] transition-colors leading-tight">
-                    Chat con Asistente
-                  </h3>
-                  <p className="text-[11px] text-[#2A1845]/70 font-light mt-0.5">
-                    Habla con Woody o guías del parque
-                  </p>
-                </div>
-              </div>
-              <div className="px-2.5 py-1 rounded-full bg-[#FFF9F3] group-hover:bg-[#9333EA] group-hover:text-white text-[11px] font-bold text-[#2A1845] border border-[#F0E2D4] transition-colors shrink-0">
-                Hablar →
               </div>
             </div>
           )}
@@ -611,6 +581,37 @@ export const SurveyIntro: React.FC<SurveyIntroProps> = ({
             <span>Comenzar Encuesta</span>
             <ArrowRight className="w-4 h-4 stroke-[2.5]" />
           </button>
+        </div>
+
+        {/* Direct Link Banner to PAFANS Wait Times */}
+        <div className="mt-12 bg-gradient-to-r from-[#2A1845] to-[#1E1131] border-2 border-[#F7B731] rounded-3xl p-6 sm:p-8 text-white shadow-xl flex flex-col md:flex-row items-center justify-between gap-6 relative overflow-hidden">
+          <StarSparkles className="top-2 right-4 text-[#F7B731]" />
+          <div className="flex items-center gap-4">
+            <div className="w-14 h-14 rounded-2xl bg-[#E64A38] text-white flex items-center justify-center text-2xl shadow-md shrink-0">
+              ⏱️
+            </div>
+            <div>
+              <div className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-[#F7B731] text-[#2A1845] text-[10px] font-black uppercase tracking-wider mb-1">
+                <Clock className="w-3 h-3" />
+                <span>En Directo</span>
+              </div>
+              <h3 className="font-serif font-bold text-xl text-white">Tiempos de Espera de PortAventura</h3>
+              <p className="text-xs text-white/70 max-w-xl">
+                Consulta los minutos exactos de cola en cada atracción antes de desplazarte por el parque a través de PAFANS.
+              </p>
+            </div>
+          </div>
+
+          <a
+            id="btn-intro-pafans-direct"
+            href="https://www.pafans.com/info/tiempos-de-espera"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="w-full md:w-auto px-6 py-3.5 bg-[#F7B731] hover:bg-[#FFA801] text-[#2A1845] font-serif font-black text-xs uppercase tracking-wider rounded-full shadow-lg transition-all flex items-center justify-center gap-2 active:scale-95 shrink-0"
+          >
+            <span>Ver Tiempos en PAFANS</span>
+            <ExternalLink className="w-4 h-4" />
+          </a>
         </div>
 
         {/* Saved Sessions History Section */}

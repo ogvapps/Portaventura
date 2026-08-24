@@ -156,26 +156,3 @@ export interface UserPreferences {
   archetypeDescription: string;
   completedAt: string;
 }
-
-export type CompanionPersonaId = 'woody' | 'aventurero' | 'dragon' | 'sheriff' | 'custom';
-
-export interface CompanionPersona {
-  id: CompanionPersonaId;
-  name: string;
-  title: string;
-  avatar: string;
-  greeting: string;
-  systemPrompt: string;
-  suggestedPrompts: string[];
-  voiceTone: string;
-  themeColor: string;
-  bgGradient: string;
-}
-
-export interface ChatMessage {
-  id: string;
-  sender: 'user' | 'assistant';
-  text: string;
-  timestamp: string;
-  attractionSuggestionId?: string;
-}

@@ -111,9 +111,11 @@ export const RecommendationModal: React.FC<RecommendationModalProps> = ({
               </div>
 
               {/* Area & Score */}
-              <div className="absolute top-3 right-3 z-10 flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/95 text-[#2A1845] text-xs font-serif font-black shadow-xs">
-                <Star className="w-3.5 h-3.5 fill-[#F7B731] text-[#F7B731]" />
-                <span>{topRec.attraction.communityScore}/10</span>
+              <div className="absolute top-3 right-3 z-10 flex items-center gap-1.5">
+                <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-white/95 text-[#2A1845] text-xs font-serif font-black shadow-xs">
+                  <Star className="w-3.5 h-3.5 fill-[#F7B731] text-[#F7B731]" />
+                  <span>{topRec.attraction.communityScore}/10</span>
+                </div>
               </div>
 
               {/* Title on Photo */}
